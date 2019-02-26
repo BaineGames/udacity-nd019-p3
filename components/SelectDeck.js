@@ -18,8 +18,9 @@ class SelectDeck extends Component {
                 Object.keys(data).map((individualDeck) =>{
                     const { label, questions } = data[individualDeck];
                     return (
-                        <View key={label}>
-                            <Text>{label} - {questions.length}</Text>
+                        <View key={label} style={styles.individualDeck}>
+                            <Text style={styles.header}>{label}</Text>
+                            <Text>{questions.length} Card(s)</Text>
                         </View>
                     )
                 })
@@ -34,7 +35,18 @@ const styles = StyleSheet.create({
         flex:1,
         justifyContent:'center',
         alignItems:'center',
-
+    },
+    individualDeck: {
+        backgroundColor:'#ccc',
+        width: "80%",
+        alignItems:'center',
+        fontSize:24,
+        margin: 10,
+        height:100,
+        
+    },
+    header:{
+        fontSize:48
     }
 })
 
