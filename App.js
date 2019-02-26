@@ -14,13 +14,15 @@ const Nav = TabNavigator({
   SelectDeck: {
     screen: SelectDeck,
     navigationOptions: {
-      tabBarLabel: "Select Deck"
+      tabBarLabel: "Select Deck",
+      tabBarIcon: ({tintColor})  => <Ionicons name='ios-bookmarks' size={30} color={tintColor} />
     }
   },
   AddNewDeck: {
     screen: AddNewDeck,
     navigationOptions: {
-      tabBarLabel: "Add Deck"
+      tabBarLabel: "Add Deck",
+      tabBarIcon: ({tintColor})  => <Ionicons name='ios-add' size={30} color={tintColor} />
     }
   }
 },{
