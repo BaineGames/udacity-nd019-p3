@@ -1,5 +1,4 @@
 import React from 'react';
-import { Text, View } from 'react-native';
 import {TabNavigator, StackNavigator} from "react-navigation";
 import { Ionicons } from "@expo/vector-icons"
 import { createStore } from "redux";

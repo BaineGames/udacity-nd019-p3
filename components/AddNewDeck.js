@@ -1,11 +1,33 @@
 import  React, { Component } from 'react';
-import {StyleSheet, View, Text} from 'react-native'
+import {StyleSheet, View, Text, TextInput, Button} from 'react-native'
+import { addDeck } from "../actions"
+import {connect } from "react-redux"
+
 
 class AddNewDeck extends Component {
+
+    state: {
+        title: 'ab'
+    }
+
+    btnPress = () => {
+        const { title } = this.state
+        alert(title)
+        this.props.dispatch(addDeck(title))
+        this.setState({title: 'ab'})
+        this.props.navigation.navigate('SelectDeck')
+    }
     render() {
         return (
             <View style={styles.container}>
                 <Text>Add New Deck</Text>
+                <TextInput style={styles.input}
+                value={this.state.title}
+                onChangeText={(newText) => this.setState({title: newText})}></TextInput>
+                <Button
+                title="Add New Deck" 
+                onPress={(this.btnPress)}/>
+                <Text>{JSON.stringify(this.state)}</Text>
             </View>
         )
     }
@@ -16,8 +38,12 @@ const styles = StyleSheet.create({
         flex:1,
         justifyContent:'center',
         alignItems:'center',
-
+    },
+    input:{
+        width:100,
+        height:20,
+        backgroundColor: 'rgba(0,0,0,0.1)'
     }
 })
 
-export default AddNewDeck
+export default connect()(AddNewDeck)
