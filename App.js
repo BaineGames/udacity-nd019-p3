@@ -1,23 +1,21 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import { Text, View } from 'react-native';
+import {TabNavigator, StackNavigator} from "react-navigation";
+import { Ionicons } from "@expo/vector-icons"
+import { createStore } from "redux";
+import { Provider } from "react-redux";
+import deckStuff from "./reducers"
+
 
 import SelectDeck from "./components/SelectDeck"
 
+
 export default class App extends React.Component {
+
   render() {
     return (
-      <View style={styles.container}>
-        <SelectDeck></SelectDeck>
-      </View>
-    );
+      <Provider store={createStore(deckStuff)}>
+      </Provider>
+    )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
