@@ -1,6 +1,6 @@
 export const startingData = {
     Mathmatics: {
-        title: "Mathmatics",
+        label: "Mathmatics",
         questions: [
             {
                 qText: "What is 2+2?",
@@ -15,7 +15,7 @@ export const startingData = {
         ]
     },
     Science: {
-        title: "Science",
+        label: "Science",
         questions: [
             {
                 qText: "What is A in DNA mean?",
@@ -40,7 +40,7 @@ export const startingData = {
         ]
     },
     Programming: {
-        title: "Programming",
+        label: "Programming",
         questions: [
             {
                 qText: "API is short for?",
