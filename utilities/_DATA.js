@@ -1,4 +1,4 @@
-const startingData = {
+export const startingData = {
     Mathmatics: {
         title: "Mathmatics",
         questions: [
@@ -65,6 +65,8 @@ const startingData = {
         ]
     }
 }
+
+export const CARD_STORAGE_KEY = "DeckQuizApp:data"
 
 export function pullData(){
     return startingData;
