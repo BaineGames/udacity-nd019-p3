@@ -1,7 +1,7 @@
 import  React, { Component } from 'react';
 import {StyleSheet, View, Text} from 'react-native'
 import { pullData } from '../utilities/_DATA';
-
+import { loadDecks } from "../utilities/api"
 class SelectDeck extends Component {
 
     componentDidMount(){
@@ -10,7 +10,7 @@ class SelectDeck extends Component {
         // this.props.data = startingData
     }
     render() {
-        const data = pullData();
+        
         return (
             <View style={styles.container}>
             <Text>Select Deck</Text>

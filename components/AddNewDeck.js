@@ -6,15 +6,14 @@ import {connect } from "react-redux"
 
 class AddNewDeck extends Component {
 
-    state: {
-        title: 'ab'
+    state = {
+        inputText: ''
     }
 
     btnPress = () => {
-        const { title } = this.state
-        alert(title)
-        this.props.dispatch(addDeck(title))
-        this.setState({title: 'ab'})
+        const { inputText } = this.state
+        alert(inputText)
+        this.props.dispatch(addDeck(inputText))
         this.props.navigation.navigate('SelectDeck')
     }
     render() {
@@ -22,8 +21,8 @@ class AddNewDeck extends Component {
             <View style={styles.container}>
                 <Text>Add New Deck</Text>
                 <TextInput style={styles.input}
-                value={this.state.title}
-                onChangeText={(newText) => this.setState({title: newText})}></TextInput>
+                           onChangeText={(newText) => this.setState({inputText: newText})}
+                           value={this.state.inputText}></TextInput>
                 <Button
                 title="Add New Deck" 
                 onPress={(this.btnPress)}/>
