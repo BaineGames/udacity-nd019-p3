@@ -3,6 +3,7 @@ import {TabNavigator, StackNavigator} from "react-navigation";
 import { Ionicons } from "@expo/vector-icons"
 import { createStore } from "redux";
 import { Provider } from "react-redux";
+import { setNotification } from "./utilities/api"
 import deckStuff from "./reducers"
 
 
@@ -50,6 +51,10 @@ const MainStack = StackNavigator({
 
 
 export default class App extends React.Component {
+
+  componentDidMount(){
+    setNotification();
+  }
 
   render() {
     return (

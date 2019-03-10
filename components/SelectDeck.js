@@ -1,20 +1,12 @@
 import  React, { Component } from 'react';
 import {StyleSheet, View, Text, TouchableOpacity} from 'react-native'
-import { pullData } from '../utilities/_DATA';
-import { loadDecks } from "../utilities/api"
 import { connect } from "react-redux"
+
 class SelectDeck extends Component {
 
-    componentDidMount(){
-        //get decks here from api
-        this.props.loadedDecks = loadDecks();
-    }
     render() {
         
         const {loadedDecks } = this.props
-
-        console.log("props", this.props)
-        console.log("HEY",loadedDecks)
         
         return (
             <View style={styles.container}> 
@@ -55,7 +47,6 @@ const styles = StyleSheet.create({
         fontSize:48
     }
 })
-
 
 function mapStateToProps(loadedDecks){
     return {loadedDecks}

@@ -3,7 +3,6 @@ import {StyleSheet, View, Text, TextInput, Button} from 'react-native'
 import { addDeck } from "../actions"
 import {connect } from "react-redux"
 
-
 class AddNewDeck extends Component {
 
     state = {
@@ -12,20 +11,22 @@ class AddNewDeck extends Component {
 
     btnPress = () => {
         const { inputText } = this.state
-        //alert(inputText)
-        this.props.dispatch(addDeck(inputText))
-        this.props.navigation.navigate('SelectDeck')
+        if(inputText == ''){
+            alert("Deck name cannot be blank")
+        }else{
+            this.props.dispatch(addDeck(inputText))
+            this.props.navigation.navigate('SelectDeck')
+        }
     }
+
     render() {
         return (
             <View style={styles.container}>
                 <Text>Add New Deck</Text>
                 <TextInput style={styles.input}
-                           onChangeText={(newText) => this.setState({inputText: newText})}
-                           value={this.state.inputText}></TextInput>
-                <Button
-                title="Add New Deck" 
-                onPress={(this.btnPress)}/>
+                    onChangeText={(newText) => this.setState({inputText: newText})}
+                    value={this.state.inputText}></TextInput>
+                <Button title="Add New Deck" onPress={(this.btnPress)}/>
             </View>
         )
     }

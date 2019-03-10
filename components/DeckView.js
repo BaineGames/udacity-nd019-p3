@@ -28,19 +28,7 @@ const styles = StyleSheet.create({
     container: {
         flex:1,
         justifyContent:'center',
-        alignItems:'center',
-    },
-    individualDeck: {
-        backgroundColor:'#ccc',
-        width: "80%",
-        alignItems:'center',
-        fontSize:24,
-        margin: 10,
-        height:100,
-        
-    },
-    header:{
-        fontSize:48
+        alignItems:'center'
     }
 })
 

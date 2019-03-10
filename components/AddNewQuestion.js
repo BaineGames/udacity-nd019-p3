@@ -13,10 +13,13 @@ class AddNewQuestion extends Component {
 
     btnPress = (deck) => {
         const { label, answer } = this.state
-        console.log(deck, label, answer)
-        //alert(inputText)
-        this.props.dispatch(addNewQuestion({deck, label, answer}))
-        this.props.navigation.navigate('DeckView', {deck: deck})
+        //console.log(deck, label, answer)
+        if(label == '' || answer == ''){
+            alert("Question or answer cannot be blank");
+        }else{
+            this.props.dispatch(addNewQuestion({deck, label, answer}))
+            this.props.navigation.navigate('DeckView', {deck: deck})
+        }        
     }
     render() {
 
@@ -44,7 +47,7 @@ const styles = StyleSheet.create({
     container: {
         flex:1,
         justifyContent:'center',
-        alignItems:'center',
+        alignItems:'center'
     },
     input:{
         width:100,

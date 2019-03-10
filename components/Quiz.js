@@ -32,46 +32,40 @@ class Quiz extends Component {
         const deck = this.props.navigation.state.params.deck
         const startingNumber = this.state.startingNumber + 1;
 
-       
-            
-            
-                if(this.state.right + this.state.wrong == loadedDecks[deck].questions.length){
-                    return (
-                        <View style={styles.container}> 
-            <Text>{deck} Quiz</Text>
-            <Text>{loadedDecks[deck].questions.length} Card(s)</Text>
-
-                        <Text>Correct Answer Score: {this.state.right}</Text>
-                        <Button title="Restart Quiz"
+        if(this.state.right + this.state.wrong == loadedDecks[deck].questions.length){
+            return (
+                <View style={styles.container}> 
+                    <Text>{deck} Quiz</Text>
+                    <Text>{loadedDecks[deck].questions.length} Card(s)</Text>
+                    <Text>Correct Answer Score: {this.state.right}</Text>
+                    <Button title="Restart Quiz"
                         onPress={() => this.restart()} />
-                        <Button title="Select Deck"
+                    <Button title="Select Deck"
                         onPress={() => this.props.navigation.navigate("SelectDeck")} />
+                </View>
+            )
+        }
 
-            </View>
-                    )
+        return (
+            <View style={styles.container}> 
+                <Text>{deck} Quiz</Text>
+                <Text>{loadedDecks[deck].questions.length} Card(s)</Text>
+                <Text>Question number: {startingNumber}</Text>
+                <Text>Questions remaining: {loadedDecks[deck].questions.length - startingNumber}</Text>
+                <Text>Question: {loadedDecks[deck].questions[startingNumber - 1].label}</Text>
+
+                {this.state.showAnswer ? 
+                    <Text>Answer: {loadedDecks[deck].questions[startingNumber - 1].answer}</Text> 
+                : 
+                    <Button title="Show Answer" onPress={() => this.setState({showAnswer: !this.state.showAnswer})} />
                 }
 
-                    return (
-                        <View style={styles.container}> 
-            <Text>{deck} Quiz</Text>
-            <Text>{loadedDecks[deck].questions.length} Card(s)</Text>
-
-            <Text>Question number: {startingNumber}</Text>
-            <Text>Questions remaining: {loadedDecks[deck].questions.length - startingNumber}</Text>
-                        <Text>Question: {loadedDecks[deck].questions[startingNumber - 1].label}</Text>
-            
-                        {this.state.showAnswer ? 
-                            <Text>Answer: {loadedDecks[deck].questions[startingNumber - 1].answer}</Text> 
-                        : 
-                            <Button title="Show Answer" onPress={() => this.setState({showAnswer: !this.state.showAnswer})} />
-                        }
-
-                        <Button title="Correct"
-                        onPress={() => this.right()} />
-                        <Button title="Incorrect"
-                        onPress={() => this.wrong()} />
+                <Button title="Correct"
+                    onPress={() => this.right()} />
+                <Button title="Incorrect"
+                    onPress={() => this.wrong()} />
             </View>
-                    )        
+        )        
     }
 }
 
@@ -79,19 +73,7 @@ const styles = StyleSheet.create({
     container: {
         flex:1,
         justifyContent:'center',
-        alignItems:'center',
-    },
-    individualDeck: {
-        backgroundColor:'#ccc',
-        width: "80%",
-        alignItems:'center',
-        fontSize:24,
-        margin: 10,
-        height:100,
-        
-    },
-    header:{
-        fontSize:48
+        alignItems:'center'
     }
 })
 
