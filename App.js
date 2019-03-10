@@ -8,6 +8,9 @@ import deckStuff from "./reducers"
 
 import SelectDeck from "./components/SelectDeck"
 import AddNewDeck from "./components/AddNewDeck"
+import DeckView from "./components/DeckView"
+import AddNewQuestion from "./components/AddNewQuestion"
+import Quiz from "./components/Quiz"
 
 const Nav = TabNavigator({
   SelectDeck: {
@@ -33,6 +36,15 @@ const Nav = TabNavigator({
 const MainStack = StackNavigator({
   Home: {
     screen: Nav
+  },
+  DeckView: {
+    screen: DeckView
+  },
+  AddNewQuestion: {
+    screen: AddNewQuestion
+  },
+  Quiz: {
+    screen: Quiz
   }
 })
 

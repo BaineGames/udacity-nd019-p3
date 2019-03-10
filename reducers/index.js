@@ -1,11 +1,11 @@
-import {GET_DECKS, ADD_DECK} from "../actions"
+import {GET_DECKS, ADD_DECK, ADD_QUESTION} from "../actions"
 
 function deckStuff( state = {}, action){
     switch(action.type){
         case ADD_DECK:
             const newDeckObj = {
                 [action.deck] : {
-                    name: action.deck,
+                    label: action.deck,
                     questions: []
                 }
             }
@@ -19,6 +19,19 @@ function deckStuff( state = {}, action){
                 ...state,
                 ...action.decks
             }
+
+        case ADD_QUESTION:{
+            const label = action.question.label;
+            const answer = action.question.answer;
+            const deck = action.question.deck;
+            return {
+                ...state,
+                [deck]: {
+                    ...state[deck],
+                    questions: [...state[deck].questions, { label, answer }]
+                }
+            }
+        }
 
         default:
             return state

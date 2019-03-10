@@ -1,27 +1,33 @@
 import  React, { Component } from 'react';
-import {StyleSheet, View, Text} from 'react-native'
+import {StyleSheet, View, Text, TouchableOpacity} from 'react-native'
 import { pullData } from '../utilities/_DATA';
 import { loadDecks } from "../utilities/api"
+import { connect } from "react-redux"
 class SelectDeck extends Component {
 
     componentDidMount(){
         //get decks here from api
-        // console.log(startingData)
-        // this.props.data = startingData
+        this.props.loadedDecks = loadDecks();
     }
     render() {
         
+        const {loadedDecks } = this.props
+
+        console.log("props", this.props)
+        console.log("HEY",loadedDecks)
+        
         return (
-            <View style={styles.container}>
+            <View style={styles.container}> 
             <Text>Select Deck</Text>
             {
-                Object.keys(data).map((individualDeck) =>{
-                    const { label, questions } = data[individualDeck];
+                Object.keys(loadedDecks).map((individualDeck) =>{
+                    const { label, questions } = loadedDecks[individualDeck];
                     return (
-                        <View key={label} style={styles.individualDeck}>
+                        <TouchableOpacity key={label} style={styles.individualDeck}
+                        onPress={() => this.props.navigation.navigate("DeckView", {deck: label})}>
                             <Text style={styles.header}>{label}</Text>
                             <Text>{questions.length} Card(s)</Text>
-                        </View>
+                        </TouchableOpacity>
                     )
                 })
             }
@@ -50,4 +56,9 @@ const styles = StyleSheet.create({
     }
 })
 
-export default SelectDeck
+
+function mapStateToProps(loadedDecks){
+    return {loadedDecks}
+}
+
+export default connect(mapStateToProps)(SelectDeck)

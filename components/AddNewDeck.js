@@ -12,7 +12,7 @@ class AddNewDeck extends Component {
 
     btnPress = () => {
         const { inputText } = this.state
-        alert(inputText)
+        //alert(inputText)
         this.props.dispatch(addDeck(inputText))
         this.props.navigation.navigate('SelectDeck')
     }
@@ -26,7 +26,6 @@ class AddNewDeck extends Component {
                 <Button
                 title="Add New Deck" 
                 onPress={(this.btnPress)}/>
-                <Text>{JSON.stringify(this.state)}</Text>
             </View>
         )
     }
