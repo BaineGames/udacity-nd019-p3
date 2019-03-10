@@ -10,6 +10,7 @@ To get started right away:
 * this requires expo on the client device to test, in my case, i used iOS
 * install all project dependencies with `npm install`
 * start the development server with `npm start`
+* connect client expo app to the development server using the onscreen instructions
 
 ## Project Notes
 
