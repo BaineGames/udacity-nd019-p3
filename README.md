@@ -7,6 +7,7 @@ This is the 'mobile flashcards' project for the React Nanodegree program. This [
 To get started right away:
 
 * clone this repository and insure you have the latest version of nodeJS installed
+* this requires expo on the client device to test, in my case, i used iOS
 * install all project dependencies with `npm install`
 * start the development server with `npm start`
 
